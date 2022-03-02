@@ -12,14 +12,20 @@ usage: pcBeam_gmrt -{options}
 options:
 
  -f1 <file-name> : GMRT data file1 (PA/CDPA)
+
  -f2 <file-name> : GMRT data file2 (IA)
  
  -nch1 <nchan>   : No. of channels in file1 
+
  -ts1  <tsamp>   : Sampling time (in ms) in file1 
+
  -nch2 <nchan>   : No. of channels in file2 
+
  -ts2  <tsamp>   : Sampling time (in ms) in file2 
+
  -scale <fact>   : scale input-2 by 'fact' before subtraction 
--o filename - specify output filename (def=stdout)
+
+ -o filename - specify output filename (def=stdout)
 
 
 #
