@@ -5,7 +5,7 @@
 
 $ bin/pcBeam_gmrt -h
 
-`pcBeam_gmrt - Construct post-correlation beam using GMRT's IA and PA/CDPA beam data
+pcBeam_gmrt - Construct post-correlation beam using GMRT's IA and PA/CDPA beam data
 
 usage: pcBeam_gmrt -{options} 
 
@@ -19,7 +19,7 @@ options:
  -nch2 <nchan>   : No. of channels in file2 
  -ts2  <tsamp>   : Sampling time (in ms) in file2 
  -scale <fact>   : scale input-2 by 'fact' before subtraction 
--o filename - specify output filename (def=stdout)`
+-o filename - specify output filename (def=stdout)
 
 
 #
