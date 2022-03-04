@@ -61,11 +61,12 @@ void pcbeam_gmrt_help()
 //  puts("-n numbits  - specify output number of bits (def=input-size)");
 //  puts("-white      - whitten each spectrum");
   puts(" -scale <fact>   : scale input-2 by 'fact' before subtraction ");
-  puts("-o filename - specify output filename (def=stdout)");
+  puts(" -o filename     : output filename (def=stdout)");
+  puts(" -cd             : File-1 is output from CDPA");
 //  puts("-headerless - do not broadcast resulting header (def=broadcast)");
   puts("");
-  puts(" -startch <nch>   : Starting chan-num to be output ");
-  puts(" -outnch  <nch>   : Total channels to be output ");
+  //puts(" -startch <nch>   : Starting chan-num to be output ");
+  //puts(" -outnch  <nch>   : Total channels to be output ");
   puts("");
 }
 
@@ -208,7 +209,7 @@ void slaCldj ( int iy, int im, int id, long double *djm, int *j ) /*includefile*
 //============================================================================
 void main (int argc, char *argv[])
 {
-  int i, j, k, jt1,jt2, nc, headersize, headerless=0,gm=0;
+  int i, j, k, jt1,jt2, nc, headersize, headerless=0,gm=0,cdpa=0;
   int ii,jj,kk, nchans1, nchans2, nchans, itemp, startch, outnch;
   float afact,anorm=-9999.0, med_fact,std;
   long double tsamp1, tsamp2, tsamp, mjd1, mjd2, mjd0, dtemp;
@@ -262,6 +263,8 @@ void main (int argc, char *argv[])
       } else if (strings_equal(argv[i],"-block")) {
 	i++;
 	bsize=atoi(argv[i]);
+      } else if (strings_equal(argv[i],"-cd")) {
+	cdpa=1;
       } else if (strings_equal(argv[i],"-nch1")) {
 	i++;
 	nchans1=atoi(argv[i]);
@@ -370,6 +373,12 @@ void main (int argc, char *argv[])
   strcpy(gmhdrfile, inpfile2);
   strcat(gmhdrfile,".hdr");
   mjd2 = gm_mjd(gmhdrfile);
+
+//  if (cdpa>0){
+//	  atemp = ((int)(1.34218*1000.0/tsamp1)*tsamp1)/1000.0;
+//	  mjd1 = mjd1 - atemp/86400.0;
+//  }
+
   if (mjd2==mjd1){
 	  dtemp = 0.0;
 	  itemp = 0;
